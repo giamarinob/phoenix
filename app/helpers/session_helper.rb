@@ -6,6 +6,6 @@ module SessionHelper
 	end
 
 	def logged_in?
-		session[:member_id]
+		session[:member_id] ? true : false
 	end
 end
