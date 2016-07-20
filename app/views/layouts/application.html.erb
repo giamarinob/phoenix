@@ -7,11 +7,29 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    
   </head>
 
   <body>
-    <%= yield %>
+    <div id='main'>
+      <% if logged_in? %>
+        <%= link_to "Logout", home_path, {id: 'session'} %>
+      <% else %>
+        <%= link_to "Login", home_path, {id: 'session'} %>
+      <% end %>
+
+      <%= image_tag 'header-phoenix', {id: 'logo'} %>
+      <table id='nav-bar'>
+        <tr>
+          <td><%= link_to 'Home', home_path %></td>
+          <td><%= link_to 'History', '#' %></td>
+          <td><%= link_to 'Newsletters', '#' %></td>
+          <td><%= link_to 'Calendars', '#' %></td>
+          <td><%= link_to 'Photos', '#' %></td>
+          <td><%= link_to 'Member Businesses', '#' %></td>
+          <td><%= link_to 'Admin', '#' %></td>
+        </tr>
+      </table>
+      <%= yield %>
+    </div>
   </body>
 </html>
