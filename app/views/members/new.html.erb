@@ -1,4 +1,7 @@
-<%= form_for :member, url: new_member_path, method: :post, {id: 'new-member'} do |f| %>
+<%= form_for :member, url: members_path, method: :post, html: {id: 'new-member'} do |f| %>
+
+  <%= render 'errors' %>
+
   <%= f.label :email %>
   <%= f.text_field :email %>
 

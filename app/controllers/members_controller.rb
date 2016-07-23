@@ -46,4 +46,8 @@ class MembersController < ApplicationController
 	def member_params
 		params.require(:member).permit(:email, :name, :password, :is_admin)
 	end
+
+	def log_in(member)
+		session[:member_id] = member.id
+	end
 end

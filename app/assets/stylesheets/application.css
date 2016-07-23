@@ -70,3 +70,19 @@ html {
 .end {
 	margin-bottom: 50px;
 }
+
+#new-member input {
+	display: block;
+	margin: auto;
+	margin-bottom: 15px;
+}
+
+#edit-member input {
+	display: block;
+	margin: auto;
+	margin-bottom: 15px;
+}
+
+#show-table {
+	margin: auto;
+}
