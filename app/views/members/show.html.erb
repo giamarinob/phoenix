@@ -1,0 +1,17 @@
+<h2><%= @member.name %> Member Page</h2>
+
+<table id='show-table'>
+	<tr>
+		<td>Email</td>
+		<td><%= @member.email %></td>
+	</tr>
+	<tr>
+		<% if current_user && current_user.is_admin %>
+		  <% if @member.is_admin %>
+		    <td><%= @member.name %> is currently an admin</td>
+		  <% else %>
+		  	<td><%= @member.name %> is currently not an admin</td>
+		  <% end %>
+		<% end %>
+	</tr>
+</table>

@@ -1,0 +1,11 @@
+<h2>Current Members</h2>
+
+<table>
+	<% @members.each do |member| %>
+	  <tr>
+	  	<td><%= link_to member.name, member_path(member) %></td>
+	  	<td><%= link_to 'Edit', edit_member_path(member) %></td>
+	  	<td><%= link_to 'Remove Member', member_path(member), {method: :delete} %></td>
+	  </tr>
+	<% end %>
+</table>

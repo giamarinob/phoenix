@@ -1,0 +1,19 @@
+<%= form_for @member, url: edit_member_path(@member), method: :put, html: {id: 'edit-member'} do |f| %>
+  
+  <%= render 'errors' %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email, value: @member.email %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, value: @member.name %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label 'Make Admin' %>
+  <%= f.check_box :is_admin, value: @member.is_admin %>
+
+  <%= f.submit 'Create New User' %>
+
+<% end %>
