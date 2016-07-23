@@ -1,0 +1,15 @@
+<%= form_for :member, url: new_member_path, method: :post, {id: 'new-member'} do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label 'Make Admin' %>
+  <%= f.check_box :is_admin %>
+
+  <%= f.submit 'Create New User' %>
+<% end %>
