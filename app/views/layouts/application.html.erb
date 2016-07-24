@@ -12,9 +12,9 @@
   <body>
     <div id='main'>
       <% if logged_in? %>
-        <%= link_to "Logout", home_path, {id: 'session'} %>
+        <%= link_to "Logout", logout_path, {id: 'session'} %>
       <% else %>
-        <%= link_to "Login", home_path, {id: 'session'} %>
+        <%= link_to "Login", login_path, {id: 'session'} %>
       <% end %>
 
       <%= image_tag 'header-phoenix', {id: 'logo'} %>
@@ -26,7 +26,7 @@
           <td><%= link_to 'Calendars', '#' %></td>
           <td><%= link_to 'Photos', '#' %></td>
           <td><%= link_to 'Member Businesses', '#' %></td>
-          <td><%= link_to 'Admin', '#' %></td>
+          <td><%= link_to 'Admin', admin_path %></td>
         </tr>
       </table>
       <%= yield %>
