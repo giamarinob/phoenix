@@ -86,3 +86,10 @@ html {
 #show-table {
 	margin: auto;
 }
+
+.admin-list {
+	text-align: left;
+	width: 25%;
+	margin: auto;
+	margin-bottom: 20px;
+}

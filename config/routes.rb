@@ -4,4 +4,10 @@ Rails.application.routes.draw do
   get '/home', to: 'home#index'
   get '/history', to: 'history#index'
   resources :members
+  
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+  get '/admin', to: 'admin#index'
 end
