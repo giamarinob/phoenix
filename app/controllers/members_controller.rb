@@ -1,4 +1,7 @@
 class MembersController < ApplicationController
+	before_action :logged_in
+	before_action :admin, except: [:show]
+
 	def index
 		@members = Member.all()
 	end

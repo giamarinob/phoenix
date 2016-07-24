@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-		puts "I am attempting to log in"
 		@member = Member.find_by_email(params[:session][:email])
 		if @member && @member.authenticate(params[:session][:password])
 			session[:member_id] = @member.id
