@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get '/home', to: 'home#index'
   get '/history', to: 'history#index'
   resources :members
+
+  resources :calendars, except: :show
   
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
