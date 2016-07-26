@@ -2,6 +2,7 @@ class MembersController < ApplicationController
 	before_action :logged_in
 	before_action :admin, except: [:show]
 
+
 	def index
 		@members = Member.all()
 	end
@@ -26,6 +27,9 @@ class MembersController < ApplicationController
 
 	def show
 		@member = Member.find(params[:id])
+		unless @member.id == current_user.id || current_user.is_admin
+			redirect_to home_path
+		end
 	end
 
 	def update
