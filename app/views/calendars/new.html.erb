@@ -1,0 +1,17 @@
+<h1>Add A New Calendar</h1>
+
+<%= form_for :calendar, url: calendars_path, method: :post, html: {id: 'calendar-form'} do |f| %>
+
+	<%= render 'errors' %> 
+
+	<%= f.label :month %>
+	<%= f.text_field :month %>
+
+	<%= f.label :year %>
+	<%= f.text_field :year %>
+
+	<%= f.label "Upload Calendar File (Must Be jpeg jpg png gif pdf)" %>
+	<%= f.file_field :calendar_file %>
+
+	<%= f.submit "Add Calendar" %>
+<% end %>
