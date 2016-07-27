@@ -22,12 +22,26 @@ class CalendarsController < ApplicationController
 	end
 
 	def edit
+		@calendar = Calendar.find(params[:id])
 	end
 
 	def update
+		@calendar = Calendar.find(params[:id])
+
+		@calendar.update(calendar_params)
+		if @calendar.save
+			redirect_to calendars_path
+		else
+			@errors = @calendar.errors.full_messages
+			render 'edit'
+		end
 	end
 
-	def delete
+	def destroy
+		@calendar = Calendar.find(params[:id])
+		@calendar.remove_calendar_file!
+		@calendar.destroy
+		redirect_to calendars_path
 	end
 
 	private

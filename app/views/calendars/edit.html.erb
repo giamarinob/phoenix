@@ -1,0 +1,20 @@
+<h1>Edit The Calendar For <%= "#{@calendar.month} #{@calendar.year}" %></h1>
+
+
+<%= form_for @calendar, url: calendar_path(@calendar), method: :put, html: {id: 'calendar-form'} do |f| %>
+
+  <%= render 'errors' %>
+
+	<%= f.label :month %>
+	<%= f.text_field :month, value: @calendar.month %>
+
+	<%= f.label :year %>
+	<%= f.text_field :year, value: @calendar.year %>
+
+	<%= f.label "Upload A File" %>
+	<%= f.file_field :calendar_file %>
+
+	<%= f.submit "Update Calendar" %>
+
+<% end %>
+
