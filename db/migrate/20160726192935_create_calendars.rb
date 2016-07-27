@@ -3,7 +3,7 @@ class CreateCalendars < ActiveRecord::Migration[5.0]
     create_table :calendars do |t|
     	t.string :month, null: false
     	t.string :year, null: false
-    	t.string :calendar_file
+    	t.string :calendar_file, null: false
 
     	t.timestamps
     end

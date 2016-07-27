@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20160726192935) do
   create_table "calendars", force: :cascade do |t|
     t.string   "month",         null: false
     t.string   "year",          null: false
-    t.string   "calendar_file"
+    t.string   "calendar_file", null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
