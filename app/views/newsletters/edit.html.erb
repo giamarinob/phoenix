@@ -1,0 +1,16 @@
+<h1>Edit Newsletter</h1>
+
+<%= form_for @newsletter, url: newsletter_path(@newsletter), method: :put, html: {id: 'calendar-form'} do |f| %>
+  <%= render 'errors' %>
+
+  <%= f.label :month %>
+  <%= f.text_field :month, value: @newsletter.month %>
+
+  <%= f.label :year %>
+  <%= f.text_field :year, value: @newsletter.year %>
+
+  <p>Upload File(jpg jpeg png gif pdf)</p>
+  <%= f.file_field :newsletter_file %>
+
+  <%= f.submit 'Update Newsletter' %>
+<% end %>

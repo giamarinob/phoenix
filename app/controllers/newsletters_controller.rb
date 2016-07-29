@@ -15,7 +15,6 @@ class NewslettersController < ApplicationController
 			flash[:notice] = "Newletter Successfully Saved!"
 			redirect_to newsletters_path
 		else
-			flash[:error] = "Newsletter Did Not Save!"
 			@errors = @newsletter.errors.full_messages
 			render 'new'
 		end
@@ -26,13 +25,15 @@ class NewslettersController < ApplicationController
 	end
 
 	def update
-		@newletter = Newsletter.find(params[:id])
+		@newsletter = Newsletter.find(params[:id])
+		if params[:newsletter][:newsletter_file]
+			@newsletter.remove_newsletter_file
+		end
 		@newsletter.update(newsletter_params)
 		if @newsletter.save
 			flash[:notice] = "Newletter Successfully Updated!"
 			redirect_to newsletters_path
 		else
-			flash[:error] = "Newsletter Did Not Update!"
 			@errors = @newsletter.errors.full_messages
 			render 'edit'
 		end
@@ -47,6 +48,6 @@ class NewslettersController < ApplicationController
 
 	private
 	  def newsletter_params
-	  	require(:newsletter).permit(:month, :year, :newsletter_file)
+	  	params.require(:newsletter).permit(:month, :year, :newsletter_file)
 	  end
 end
