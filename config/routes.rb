@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   get '/', to: 'home#index'
   get '/home', to: 'home#index'
   get '/history', to: 'history#index'
-  resources :members
 
+  resources :members
   resources :calendars, except: :show
+  resources :newsletter, except: :show
   
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
