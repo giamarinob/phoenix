@@ -12,7 +12,6 @@ class CalendarsController < ApplicationController
 			flash[:notice] = "Calendar Successfully Created"
 			redirect_to calendars_path
 		else
-			flash[:error] = "Failed to save calendar"
 			@errors = @calendar.errors.full_messages
 			render 'new'
 		end
@@ -27,9 +26,14 @@ class CalendarsController < ApplicationController
 
 	def update
 		@calendar = Calendar.find(params[:id])
+		#if a new file is being uploaded, remove the old file before saving the new one
+    if params[:calendar][:calendar_file]
+			@calendar.remove_calendar_file
+		end
 
 		@calendar.update(calendar_params)
 		if @calendar.save
+			flash[:notice] = "Calendar Succesfully Updated!"
 			redirect_to calendars_path
 		else
 			@errors = @calendar.errors.full_messages
@@ -38,9 +42,13 @@ class CalendarsController < ApplicationController
 	end
 
 	def destroy
+		#find the calendar
 		@calendar = Calendar.find(params[:id])
+		#remove the file associated with the record
 		@calendar.remove_calendar_file!
+		#remove record only after removing the file
 		@calendar.destroy
+		#stay on calendar index
 		redirect_to calendars_path
 	end
 

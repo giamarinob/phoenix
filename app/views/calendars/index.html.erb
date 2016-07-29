@@ -1,5 +1,6 @@
 <h1>What's Happening This Month</h1>
 
+<%= render 'shared/flash' %>
 
 <% @calendars.each do |calendar| %>
 	<p><%= link_to "#{calendar.month} #{calendar.year}", calendar.calendar_file.url %>
