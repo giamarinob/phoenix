@@ -44,4 +44,9 @@ class NewslettersController < ApplicationController
 		@newsletter.destroy
 		redirect_to newsletters_path
 	end
+
+	private
+	  def newsletter_params
+	  	require(:newsletter).permit(:month, :year, :newsletter_file)
+	  end
 end
