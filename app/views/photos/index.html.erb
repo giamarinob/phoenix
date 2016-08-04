@@ -1,0 +1,11 @@
+<h1>The Phoenix Club Photo Gallery</h1>
+
+<%= render 'shared/flash' %>
+
+<% @photos.each do |photo| %>
+  <%= image_tag photo.photo_file.url %>
+  <p><%= photo.caption %></p>
+  <% if current_user.is_admin %>
+    <p><%= link_to "Edit Photo", edit_photo_path(photo) %> | <%= link_to "Delete Photo", photo_path(photo), {method: :delete} %>
+  <% end %>
+<% end %>

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :members
   resources :calendars, except: :show
   resources :newsletters, except: :show
+  resources :photos, except: :show
   
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
