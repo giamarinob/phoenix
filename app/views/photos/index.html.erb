@@ -7,5 +7,12 @@
   <p><%= photo.caption %></p>
   <% if current_user.is_admin %>
     <p><%= link_to "Edit Photo", edit_photo_path(photo) %> | <%= link_to "Delete Photo", photo_path(photo), {method: :delete} %>
+    </p>
   <% end %>
 <% end %>
+
+<p>
+	<% if current_user.is_admin %>
+		<%= link_to 'Add New Photo', new_photo_path %>
+	<% end %>
+</p>

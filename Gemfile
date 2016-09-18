@@ -26,7 +26,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+# CarrierWave handles file uploading
 gem 'carrierwave', '~> 0.11.0'
+# RMagick will handle any file processing before CarrierWave saves the file
+gem 'rmagick', '~> 2.16'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
