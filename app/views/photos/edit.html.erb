@@ -1,0 +1,14 @@
+<h1>Edit This Photo</h1>
+
+<%= form_for @photo, url: photos_path(@photo), method: :put, html: {id: 'calendar-form'} do |f| %>
+
+	<%= render 'errors' %>
+
+	<p>Upload File(jpg jpeg png gif)</p>
+	<%= f.file_field :photo_file %>
+
+	<%= f.label :caption %>
+	<%= f.text_field :caption, value: @photo.caption %>
+
+	<%= f.submit 'Edit Photo' %>
+<% end %>
