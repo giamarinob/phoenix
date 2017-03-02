@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_action :logged_in
+  
   before_action :admin, except: [:index]
 
 	def index

@@ -4,7 +4,7 @@
 
 <% @calendars.each do |calendar| %>
 	<p><%= link_to "#{calendar.month} #{calendar.year}", calendar.calendar_file.url %>
-		<% if current_user.is_admin %>
+		<% if session[:member_id] && current_user.is_admin %>
 				 | <%= link_to 'Edit Calendar', edit_calendar_path(calendar) %>  | 
 				<%= link_to 'Remove Calendar', calendar_path(calendar), {method: :delete} %>
 		<% end %>
@@ -12,4 +12,4 @@
 <% end %>
 
 
-<%= link_to "Add Calendar", new_calendar_path if current_user.is_admin %>
+<%= link_to "Add Calendar", new_calendar_path if session[:member_id] && current_user.is_admin %>

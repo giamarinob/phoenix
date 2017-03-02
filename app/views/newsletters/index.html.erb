@@ -4,12 +4,12 @@
 
 <% @newsletters.each do |nl| %>
   <p><%= link_to "#{nl.month} #{nl.year}", nl.newsletter_file.url %>
-  	<% if current_user.is_admin %>
+  	<% if session[:member_id] && current_user.is_admin %>
   	   | <%= link_to 'Edit', edit_newsletter_path(nl) %> | <%= link_to 'Delete', newsletter_path(nl), {method: :delete} %>
   	 <% end %>
   </p>
 <% end %>
 
-<% if current_user.is_admin %>
+<% if session[:member_id] && current_user.is_admin %>
   <p><%= link_to 'Add Newsletter', new_newsletter_path %></p>
 <% end %>
