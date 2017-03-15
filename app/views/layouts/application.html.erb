@@ -2,36 +2,52 @@
 <html>
   <head>
     <title>PCA</title>
-    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js'>
-    </script>
+    <%= favicon_link_tag 'pca-favicon.ico' %>
+    <script src='https://code.jquery.com/jquery-3.1.1.js' integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+    <meta name "viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <div id='main'>
-      <% if logged_in? %>
-        <p id='session'>Welcome, <%= current_user.name %>. <%= link_to 'Your Profile', member_path(current_user) %>, <%= link_to "Logout", logout_path %></p>
-      <% else %>
-        <p id='session'><%= link_to "Login", login_path %></p>
-      <% end %>
-
-      <%= image_tag 'header-phoenix', {id: 'logo'} %>
-      <table id='nav-bar'>
-        <tr>
-          <td><%= link_to 'Home', home_path %></td>
-          <td><%= link_to 'History', history_path %></td>
-          <td><%= link_to 'Newsletters', newsletters_path %></td>
-          <td><%= link_to 'Calendars', calendars_path %></td>
-          <td><%= link_to 'Photos', photos_path %></td>
-          <td><%= link_to 'Member Businesses', '#' %></td>
-          <% if logged_in? && current_user.is_admin %>
-            <td><%= link_to 'Admin', admin_path %></td>
+    <nav class='navbar navbar-default' role='navigation'>
+      <div class='container'>
+        <div class='navbar-header'>
+          <%= link_to image_tag('header-phoenix', {id: 'logo'}), home_path %>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapsable">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span> 
+          </button>
+        </div>
+        <div class='collapse navbar-collapse' id='collapsable'>
+          <ul class='nav navbar-nav'>
+           <li class='selectable highlightable link'><%= link_to 'Home', home_path %></li>
+           <li class='selectable highlightable link'><%= link_to 'History', history_path %></li>
+           <li class='selectable highlightable link'><%= link_to 'Newsletters', newsletters_path %></li>
+           <li class='selectable highlightable link'><%= link_to 'Calendars', calendars_path %></li>
+           <li class='selectable highlightable link'><%= link_to 'Photos', photos_path %></li>
+           <li class='selectable highlightable link'><%= link_to 'Member Businesses', '#' %></li>
+           <% if logged_in? && current_user.is_admin %>
+             <li class='selectable highlightable link'><%= link_to 'Admin', admin_path %></li>
+           <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-md-12'>
+          <%= yield %>
+          <% if logged_in? %>
+            <p id='session'>Welcome, <%= current_user.name %>. <%= link_to 'Your Profile', member_path(current_user) %>, <%= link_to "Logout", logout_path %></p>
+          <% else %>
+            <p id='session'><%= link_to "Login", login_path %></p>
           <% end %>
-        </tr>
-      </table>
-      <%= yield %>
+        </div>
+      </div>
     </div>
   </body>
 </html>
