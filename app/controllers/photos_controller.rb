@@ -1,5 +1,4 @@
 class PhotosController < ApplicationController
-  
   before_action :admin, except: [:index]
 
 	def index
