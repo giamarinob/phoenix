@@ -41,14 +41,14 @@
     <div class='container'>
       <div class='row'>
         <div class='col-md-12'>
-          <%= yield %>
           <% if logged_in? %>
-            <p id='session'>Welcome, <%= current_user.name %>. <%= link_to 'Your Profile', member_path(current_user) %>, <%= link_to "Logout", logout_path %></p>
+            <p id='session'>Welcome, <%= current_user.name %>. <%= link_to 'Profile', member_path(current_user) %>, <%= link_to "Logout", logout_path %></p>
           <% else %>
             <p id='session'><%= link_to "Login", login_path %></p>
           <% end %>
         </div>
       </div>
+      <%= yield %>
     </div>
   </body>
 </html>
