@@ -15,7 +15,12 @@
 <div class='row'>
 	<div class='col-md-12'>
 		<h2>Stay Up To Date With The Phoenix Club Of Aurora</h2>
-		<p><%= link_to "Latest Newsletter", @newsletter.newsletter_file.url %></p>
-		<p><%= link_to "Latest Calendar", @calendar.calendar_file.url %></p>
 	</div>
 </div>
+<div class='row'>
+	<div class='col-md-6'>
+		<button type = "button" class = "btn btn-danger"><%= link_to "Latest Newsletter", @newsletter.newsletter_file.url, {class: 'home-btn'} %></button>
+	</div>
+	<div class='col-md-6'>
+		<button type = "button" class = "btn btn-warning"><%= link_to "Latest Calendar", @calendar.calendar_file.url, {class: 'home-btn'} %></button>
+	</div>
