@@ -1,9 +1,15 @@
-<h1 class='admin-header'>Welcome To The Administration Page</h1>
+<div class='row'>
+	<div class='col-md-3'></div>
+	<div class='col-md-6'>
+		<h1 class='admin-header'>Welcome To The Administration Page</h1>
 
-<p>These actions are available to administration</p>
-<ul class='admin-list'>
-	<li><%= link_to 'Add Calendar', new_calendar_path %></li>
-	<li><%= link_to 'Add Newsletter', new_newsletter_path %></li>
-	<li><%= link_to 'Add Photo', new_photo_path %></li>
-	<li><%= link_to 'Manage Membership', members_path %></li>
-</ul>
+		<p>These actions are available to administration</p>
+		<ul class='admin-list'>
+			<li><%= link_to 'Add Calendar', new_calendar_path %></li>
+			<li><%= link_to 'Add Newsletter', new_newsletter_path %></li>
+			<li><%= link_to 'Add Photo', new_photo_path %></li>
+			<li><%= link_to 'Manage Membership', members_path %></li>
+		</ul>
+	</div>
+	<div class='col-md-3'></div>
+</div>
