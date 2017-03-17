@@ -111,3 +111,19 @@
 	margin: auto;
 	margin-bottom: 15px;
 }
+
+.btn
+{
+	width: 80%;
+}
+
+.page-footer
+{
+	background-color: black;
+	margin-top: 40px;
+}
+
+.footer-text
+{
+	color: white;
+}
