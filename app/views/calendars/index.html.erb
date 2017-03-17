@@ -1,15 +1,45 @@
-<h1>What's Happening This Month</h1>
+<div class='row'>
+	<div class='col-md-3'></div>
+	<div class='col-md-6'>
+		<h1>What's Happening This Month</h1>
 
-<%= render 'shared/flash' %>
+		<%= render 'shared/flash' %>
 
-<% @calendars.each do |calendar| %>
-	<p><%= link_to "#{calendar.month} #{calendar.year}", calendar.calendar_file.url %>
+
+		<div class = "panel-group" id = "accordion">
+		   <div class = "panel panel-default">
+				<% @year_collection.each do |year, calendars| %>
+					<% panel_id = "collapse#{year}" %>
+					<div class='panel-heading'>
+						<h2 class='panel-title'>
+							<%= link_to "#{year} Calendars", "#collapse#{year}", {'data-toggle' => 'collapse', 'data-parent' => 'accordian'} %>
+						</h2>
+					</div>
+
+					<div id="<%= panel_id %>" class='panel-collapse collapse'>
+						<div class='panel-body'>
+							<% calendars.each do |calendar| %>
+								<p>
+									<%= link_to "#{calendar.month} #{calendar.year}", calendar.calendar_file.url %>
+									<% if session[:member_id] && current_user.is_admin %>
+											 | <%= link_to 'Edit Calendar', edit_calendar_path(calendar) %>  | 
+											<%= link_to 'Remove Calendar', calendar_path(calendar), {method: :delete} %>
+									<% end %>
+								</p>
+							<% end %>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		</div>
+
 		<% if session[:member_id] && current_user.is_admin %>
-				 | <%= link_to 'Edit Calendar', edit_calendar_path(calendar) %>  | 
-				<%= link_to 'Remove Calendar', calendar_path(calendar), {method: :delete} %>
+			<p>
+				<button type = "button" class = "btn btn-success">
+					<%= link_to "Add Calendar", new_calendar_path, {class: 'home-btn'} %>
+				</button>
+			</p>
 		<% end %>
-	</p>
-<% end %>
-
-
-<%= link_to "Add Calendar", new_calendar_path if session[:member_id] && current_user.is_admin %>
+	</div>
+	<div class='col-md-3'></div>
+</div>

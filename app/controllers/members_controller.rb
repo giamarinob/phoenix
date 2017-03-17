@@ -34,6 +34,31 @@ class MembersController < ApplicationController
 
 	def update
 		@member = Member.find(params[:id])
+		@errors = Array.new
+		puts params[:id]
+		if params[:newPass1] 
+			if params[:newPass2] && params[:newPass1] == params[:newPass2]
+				if params[:password]
+					if @member.authenticate(:password)
+						params[:password] = params[:newPass1]
+					else
+						@errors.push("You Entered Your Current Password Incorrectly")
+						render 'edit'
+					end
+				else
+					@errors.push("Please Enter Your Current Password To Edit Your Profile")
+					render 'edit'
+				end
+			else
+				@errors.push("Your New Passwords Do Not Match")
+				render 'edit'
+			end
+		elsif params[:password]
+			if !@member.authenticate(params[:password])
+				@errors.push("Please Enter Your Current Password To Update Your Profile")
+			end
+		end
+
 		@member.update(member_params)
 		if @member.save
 			redirect_to members_path

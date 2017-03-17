@@ -2,7 +2,12 @@ class CalendarsController < ApplicationController
 	before_action :admin, except: [:index]
 
 	def index
-		@calendars = Calendar.limit(3)
+		@years = Calendar.select(:year).distinct.to_a
+		@year_collection = Hash.new
+
+		@years.each do |year|
+			@year_collection[year.year.to_sym] = Calendar.where(year: year.year).order(:id)
+		end
 	end
 
 	def create

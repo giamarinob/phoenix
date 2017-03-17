@@ -1,7 +1,34 @@
-<p class='home'>Auroraland's finest club since 1893</p>
+<div class='row'>
+	<div class='col-md-2'></div>
+	<div class='col-md-8'>
+		<div class='row'>
+			<div class='col-md-12'>
+				<p class='home'>Auroraland's finest club since 1893</p>
 
-<p class='home'>
-	<i>...in the fall of 1893 the first organization meeting ws held. The membership numbered twenty-two. Sam S. Montgomery was elected president and John "Casey" Braum was elected treasurer. Upon recommedation of President Montgomery the organization was called "The Phoenix Social Club."</i>
-</p>
-
-<%= image_tag 'PhoenixClub-2009', {id: 'pc2009'} %>
+				<p class='home'>
+					<i>...in the fall of 1893 the first organization meeting ws held. The membership numbered twenty-two. Sam S. Montgomery was elected president and John "Casey" Braum was elected treasurer. Upon recommedation of President Montgomery the organization was called "The Phoenix Social Club."</i>
+				</p>
+			</div>
+		</div>
+		<div class='row'>
+			<div class='col-md-12'>
+				<%= image_tag 'PhoenixClub-2009', {id: 'pc2009'} %>
+			</div>
+		</div>
+		<div class='row'>
+			<div class='col-md-12'>
+				<h2>Stay Up To Date With The Phoenix Club Of Aurora</h2>
+			</div>
+		</div>
+		<div class='row'>
+			<div class='col-md-3'>
+				<button type = "button" class = "btn btn-danger"><%= link_to "Latest Newsletter", @newsletter.newsletter_file.url, {class: 'home-btn'} %></button>
+			</div>
+			<div class='col-md-3'>
+				<button type = "button" class = "btn btn-warning"><%= link_to "Latest Calendar", @calendar.calendar_file.url, {class: 'home-btn'} %></button>
+			</div>
+			<div class='col-md-6'></div>
+		</div>
+	</div>
+	<div class='col-md-2'></div>
+</div>

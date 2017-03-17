@@ -30,7 +30,6 @@
            <li class='highlightable'><%= link_to 'Newsletters', newsletters_path %></li>
            <li class='highlightable'><%= link_to 'Calendars', calendars_path %></li>
            <li class='highlightable'><%= link_to 'Photos', photos_path %></li>
-           <li class='highlightable'><%= link_to 'Member Businesses', '#' %></li>
            <% if logged_in? && current_user.is_admin %>
              <li class='highlightable'><%= link_to 'Admin', admin_path %></li>
            <% end %>
@@ -38,17 +37,38 @@
         </div>
       </div>
     </nav>
-    <div class='container'>
+    <div class='container main'>
       <div class='row'>
         <div class='col-md-12'>
-          <%= yield %>
           <% if logged_in? %>
-            <p id='session'>Welcome, <%= current_user.name %>. <%= link_to 'Your Profile', member_path(current_user) %>, <%= link_to "Logout", logout_path %></p>
+            <p id='session'>Welcome, <%= current_user.name %>. <%= link_to 'Profile', member_path(current_user) %>, <%= link_to "Logout", logout_path %></p>
           <% else %>
             <p id='session'><%= link_to "Login", login_path %></p>
           <% end %>
         </div>
       </div>
+      <%= yield %>
     </div>
+
+    <footer class="page-footer blue center-on-small-only">
+        <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6 footer-text">
+                  <p>515 Phoenix Ct</p>
+                  <p>Aurora, IL 60505</p>
+                  <p>Call: 630.896-1411</p>
+              </div>
+              <div class="col-md-3">
+                  <h5 class="footer-text">Links</h5>
+                  <ul>
+                      <li><a href="https://www.facebook.com/The-Phoenix-Club-129596837143565/" target='_blank'>Find Us On Facebook</a></li>
+                      <li><a href="mailto:suggestions@phoenixclubaurora.com?subject=Improving The Phoenix Club">Suggesstions For Improvement</a></li>
+                      <li><a href="https://www.google.com/maps/place/Phoenix+Club/@41.7708889,-88.3024745,17z/data=!3m1!4b1!4m5!3m4!1s0x880efaeb9b0db6a3:0x4bf9697e3416c644!8m2!3d41.7708889!4d-88.3002858" target='_blank'>Directions</a></li>
+                  </ul>
+              </div>
+              <div class='col-md-3'></div>
+            </div>
+        </div>
+    </footer>
   </body>
 </html>
