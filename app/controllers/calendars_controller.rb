@@ -2,7 +2,6 @@ class CalendarsController < ApplicationController
 	before_action :admin, except: [:index]
 
 	def index
-		@calendars = Calendar.limit(3)
 		@years = Calendar.select(:year).distinct.to_a
 		@year_collection = Hash.new
 

@@ -2,7 +2,12 @@ class NewslettersController < ApplicationController
   before_action :admin, except: [:index]
 
 	def index
-		@newsletters = Newsletter.limit(3)
+		@years = Newsletter.select(:year).distinct.to_a
+		@year_collection = Hash.new
+
+		@years.each do |year|
+			@year_collection[year.year.to_sym] = Newsletter.where(year: year.year).order(:id)
+		end
 	end
 
 	def new

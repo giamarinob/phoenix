@@ -30,7 +30,6 @@
            <li class='highlightable'><%= link_to 'Newsletters', newsletters_path %></li>
            <li class='highlightable'><%= link_to 'Calendars', calendars_path %></li>
            <li class='highlightable'><%= link_to 'Photos', photos_path %></li>
-           <li class='highlightable'><%= link_to 'Member Businesses', '#' %></li>
            <% if logged_in? && current_user.is_admin %>
              <li class='highlightable'><%= link_to 'Admin', admin_path %></li>
            <% end %>
