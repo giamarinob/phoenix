@@ -29,4 +29,5 @@ slice-it-mobile/
 tmp/
 public/calendars
 public/newsletters
+public/uploads
 config/application.yml
