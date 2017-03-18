@@ -29,4 +29,4 @@ slice-it-mobile/
 tmp/
 public/calendars
 public/newsletters
-
+config/application.yml

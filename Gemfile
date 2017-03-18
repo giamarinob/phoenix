@@ -30,6 +30,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'carrierwave', '~> 0.11.0'
 # RMagick will handle any file processing before CarrierWave saves the file
 gem 'rmagick', '~> 2.16'
+# Fog will allow us to upload images to the cloud
+gem 'fog'
+# Using fog-aws
+gem 'fog-aws'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
