@@ -34,6 +34,8 @@ gem 'rmagick', '~> 2.16'
 gem 'fog'
 # Using fog-aws
 gem 'fog-aws'
+# Just shooting in the dark now
+gem 'aws-sdk'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
