@@ -15,3 +15,10 @@
 //= require turbolinks
 //= require_tree .
 
+$(function() {
+  $('#calendar-form').find("input:file").each(function(i, elem) 
+  {
+    var fileInput    = $(elem);
+    console.log(fileInput);
+  });
+});

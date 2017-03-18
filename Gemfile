@@ -36,6 +36,8 @@ gem 'fog'
 gem 'fog-aws'
 # Just shooting in the dark now
 gem 'aws-sdk'
+# Carrierwave Direct to s3
+gem 'carrierwave_direct'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
