@@ -16,9 +16,7 @@
 
 		<p>
 			<% if session[:member_id] && current_user.is_admin %>
-				<button type = "button" class = "btn btn-primary">
-					<%= link_to 'Add New Photo', new_photo_path, {style: "text-decoration:none; color:white;"} %>
-				</button>
+				<%= button_to 'Add New Photo', new_photo_path, {method: :get, class: 'btn btn-primary'} %>
 			<% end %>
 		</p>
 	</div>
