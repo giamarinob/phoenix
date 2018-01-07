@@ -34,9 +34,7 @@
 
 		<% if session[:member_id] && current_user.is_admin %>
 			<p>
-				<button type = "button" class = "btn btn-success">
-					<%= link_to "Add Newsletter", new_newsletter_path, {class: 'home-btn'} %>
-				</button>
+				<%= button_to 'Add Newsletter', new_newsletter_path, {class: "btn btn-success", method: :get} %>
 			</p>
 		<% end %>
 	</div>

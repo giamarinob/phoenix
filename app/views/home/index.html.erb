@@ -23,12 +23,12 @@
 		<div class='row'>
 			<div class='col-md-3'>
 				<% if @newsletter %>
-					<button type = "button" class = "btn btn-danger"><%= link_to "Latest Newsletter", @newsletter.newsletter_file.url, {class: 'home-btn'} %></button>
+					<%= button_to 'Latest Newsletter', @newsletter.newsletter_file.url, {method: :get, class: 'btn btn-danger'} %>
 				<% end %>
 			</div>
 			<div class='col-md-3'>
 				<% if @calendar %>
-					<button type = "button" class = "btn btn-warning"><%= link_to "Latest Calendar", @calendar.calendar_file.url, {class: 'home-btn'} %></button>
+					<%= button_to 'Latest Calendar', @calendar.calendar_file.url, {method: :get, class: 'btn btn-warning'} %>
 				<% end %>
 			</div>
 			<div class='col-md-6'></div>

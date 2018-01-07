@@ -35,9 +35,7 @@
 
 		<% if session[:member_id] && current_user.is_admin %>
 			<p>
-				<button type = "button" class = "btn btn-success">
-					<%= link_to "Add Calendar", new_calendar_path, {class: 'home-btn'} %>
-				</button>
+				<%= button_to 'Add Calendar', new_calendar_path, {method: :get, class: 'btn btn-success'} %>
 			</p>
 		<% end %>
 	</div>
