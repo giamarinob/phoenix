@@ -4,14 +4,14 @@
 		<div class='row'>
 			<div class='col-md-12'>
 				<p class='home'>Auroraland's finest club since 1893</p>
-				<% if logged_in? && current_user.is_admin %>
-				    <p><%= link_to 'Edit Announcments', '/editor/home', id: 'edit_link', data: {save_url: mercury_update_announcement_path(@announcement)} %></p>
-				<% end %>
 				<h3 class='home'>
 					<span id='announcement_title' data-mercury='full' contenteditable='true'>
 						<%= raw @announcement.title %>
 					</span>
 				</h3>
+				<% if logged_in? && current_user.is_admin %>
+				    <p><%= link_to 'Edit Announcments', '/editor/home', id: 'edit_link', data: {save_url: mercury_update_announcement_path(@announcement)} %></p>
+				  <% end %>
 				<div id='announcement_announcements' data-mercury='full' contenteditable='true'>
 					<%= raw @announcement.announcements %>
 				</div>
