@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160804033537) do
+ActiveRecord::Schema.define(version: 20180121215901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "announcements", force: :cascade do |t|
+    t.string   "title",         default: "Announcements"
+    t.text     "announcements", default: "There are no announcements."
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
+  end
 
   create_table "calendars", force: :cascade do |t|
     t.string   "month",         null: false
@@ -32,6 +39,15 @@ ActiveRecord::Schema.define(version: 20160804033537) do
     t.datetime "updated_at",                      null: false
   end
 
+  create_table "mercury_images", force: :cascade do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "newsletters", force: :cascade do |t|
     t.string   "month",           null: false
     t.string   "year",            null: false
@@ -42,7 +58,7 @@ ActiveRecord::Schema.define(version: 20160804033537) do
 
   create_table "photos", force: :cascade do |t|
     t.string   "caption"
-    t.string   "photo_file"
+    t.string   "photo_file", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

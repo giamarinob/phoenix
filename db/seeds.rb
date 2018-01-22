@@ -8,3 +8,4 @@
 Member.create!(email: 'giamarinob@gmail.com', name: 'Ben Giamarino', password: 'phoenix1', is_admin: true)
 Member.create!(email: 'eachandler@comcast.net', name: 'Betty Chandler', password: 'phoenix1', is_admin: true)
 Member.create!(email: 'demo@demo.com', name: 'Demo Member', password: 'phoenix1')
+Announcement.create!(title: 'Announcements', announcements: 'There are no announcements')

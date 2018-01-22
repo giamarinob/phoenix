@@ -1,8 +1,8 @@
 CarrierWave.configure do |config|
 
-	if !Rails.env.production?
-		ENV = YAML.load_file("#{Rails.root.to_s}/config/application.yml")
-	end
+	YAML.load_file("#{Rails.root.to_s}/config/application.yml").each do |key, value|
+    ENV[key.to_s] = value
+  end if !Rails.env.production?
 	
 	config.fog_credentials = {
   	:provider              => 'AWS',
