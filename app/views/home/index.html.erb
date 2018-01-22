@@ -4,10 +4,17 @@
 		<div class='row'>
 			<div class='col-md-12'>
 				<p class='home'>Auroraland's finest club since 1893</p>
-
-				<p class='home'>
-					<i>We are still working on the website but you will find the latest newsletter and calendars already available so you can stay up to date with all the happenings at the club. Coming soon…daily lunch and dinner specials posted along with menus and lots of other information about all the other events here at the club. Thank you for your patience during this transition.</i>
-				</p>
+				<% if logged_in? && current_user.is_admin %>
+				    <p><%= link_to 'Edit Announcments', '/editor/home', id: 'edit_link', data: {save_url: mercury_update_announcement_path(@announcement)} %></p>
+				<% end %>
+				<h3 class='home'>
+					<span id='announcement_title' data-mercury='full' contenteditable='true'>
+						<%= raw @announcement.title %>
+					</span>
+				</h3>
+				<div id='announcement_announcements' data-mercury='full' contenteditable='true'>
+					<%= raw @announcement.announcements %>
+				</div>
 			</div>
 		</div>
 		<div class='row'>

@@ -38,6 +38,10 @@ gem 'fog-aws'
 gem 'aws-sdk'
 # Carrierwave Direct to s3
 gem 'carrierwave_direct'
+# Mercury WYSIYG Editor
+gem 'mercury-rails', git: 'https://github.com/jejacks0n/mercury'
+# Potentially fix jquery problems with mercury editor
+gem 'jquery-migrate-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
